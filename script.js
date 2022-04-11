@@ -55,8 +55,14 @@ class Post extends Parent {
         //right BTN
         var rightBtn = clonePost.getElementsByClassName('rightBtn')[0]
         rightBtn.style.left = clonePost.offsetLeft + clonePost.offsetWidth - rightBtn.offsetWidth + "px"
-        // onclick
+        // onclick right BTN
         rightBtn.setAttribute('onclick', "moveImgRight('" + this.id +"')")
+        var carousel = clonePost.getElementsByClassName("carousel")[0]
+        //left BTN
+        var leftBtn = clonePost.getElementsByClassName('leftBtn')[0]
+        //leftBtn.style.left = clonePost.offsetLeft + clonePost.offsetWidth - rightBtn.offsetWidth + "px"
+        // onclick left BTN
+        leftBtn.setAttribute('onclick', "moveImgLeft('" + this.id +"')")
         var carousel = clonePost.getElementsByClassName("carousel")[0]
     }
 }
@@ -78,7 +84,7 @@ function recursionMoveRight(postImg,leftt, limLeft){
         setTimeout(recursionMoveRight, 10 , postImg, leftt, limLeft)
     }
 }
-/*
+
 function moveImgLeft(idd){
     postImg = document.getElementsByClassName('Img' + idd)
     for(var i = 0; i < postImg.length; i++){
@@ -93,11 +99,11 @@ function moveImgLeft(idd){
 function recursionMoveLeft(postImg,leftt, limLeft){
     leftt += 30
     postImg.style.left = leftt + 'px'
-    if(leftt >= limLeft){
+    if(leftt <= limLeft){
         setTimeout(recursionMoveLeft, 10 , postImg, leftt, limLeft)
     }
 }
-*/
+
 
 
 class Comment extends Parent {
